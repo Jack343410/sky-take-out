@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.core.annotation.Order;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -81,16 +82,17 @@ public interface OrderMapper {
     Double sumByMap(Map map);
 
     /**
-     * 根据时间区间统计当天新增用户
-     * @param map
+     * 根据时间区间统计用户
+     * @param begin
+     * @param end
      * @return
      */
-    Integer newUserByMap(Map map);
+    Integer getUserCount(LocalDateTime begin, LocalDateTime end);
 
     /**
-     * 根据时间区间统计当天总用户
+     * 订单统计
      * @param map
      * @return
      */
-    Integer totalUserByMap(Map map);
+    Integer sumOrderByMap(Map map);
 }

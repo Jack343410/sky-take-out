@@ -53,11 +53,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         shoppingCart.setUserId(userId);
 
         List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
-        if(list==null||list.size()>0){
+        if(list!=null && list.size()>0){
             ShoppingCart cart = list.get(0);
-            cart.setNumber(shoppingCart.getNumber()+1);
+            cart.setNumber(cart.getNumber()+1);
             shoppingCartMapper.updateNumberById(cart);
-
         }else{
             Long dishId = shoppingCartDTO.getDishId();
             if(dishId != null){

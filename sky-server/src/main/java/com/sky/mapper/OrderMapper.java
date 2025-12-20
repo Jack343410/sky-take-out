@@ -79,4 +79,18 @@ public interface OrderMapper {
      * @return
      */
     Double sumByMap(Map map);
+
+    /**
+     * 根据时间区间统计当天新增用户
+     * @param map
+     * @return
+     */
+    Integer newUserByMap(Map map);
+
+    /**
+     * 根据时间区间统计当天总用户
+     * @param map
+     * @return
+     */
+    Integer totalUserByMap(Map map);
 }
